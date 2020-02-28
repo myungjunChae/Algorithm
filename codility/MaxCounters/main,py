@@ -1,0 +1,11 @@
+def solution(N, A):
+    result = []
+    result[:N]= [0]*N
+    for a in A:
+      if a == N+1:
+        result[:N] = [max(result)]*N
+        continue
+      result[a-1] +=1 
+    return result
+      
+print(solution(5,[3,4,4,6,1,4,4]))
