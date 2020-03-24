@@ -5,21 +5,20 @@ def solution(n,A):
     reverse = [''] *8
     for a in A:
         a=a[0]
-        for i in range(0,len(a)-n):
+        for i in range(0,len(a)-n+1):
             t = a[i:i+n]
             if t == t[::-1]: #역순을 나타냄
                 count+=1
 
-    # for a in A:
-    #     for i, value in enumerate(a[0]):
-    #         reverse[i] += value
+    for a in A:
+        for i, value in enumerate(a[0]):
+            reverse[i] += value
             
-    # for a in reverse:
-    #     a=a[0]
-    #     for i in range(0,len(a)-n):
-    #         t = a[i:i+n]
-    #         if t == t[::-1]: 
-    #             count+=1
+    for a in reverse:
+        for i in range(0,len(a)-n+1):
+            t = a[i:i+n]
+            if t == t[::-1]: 
+                count+=1
 
     return count
         
