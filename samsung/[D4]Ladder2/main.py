@@ -8,19 +8,19 @@ def solution(A):
         i=0
         j=s
         dic[s]=1
-        visit = [[0]*100]*100
+        visit = [[0 for i in range(100)] for i in range(100)]
 
         while True:
             if i == len(A)-1:
                 break
 
-            if j >= 1 and A[i][j-1] == 1 and visit[i][j-1] == 0: #좌측
+            if j > 0 and A[i][j-1] == 1 and visit[i][j-1] == 0: #좌측
                 visit[i][j-1] = 1
                 j-=1
                 dic[s] +=1 
                 continue
 
-            if j <= len(A)-2 and A[i][j+1] == 1 and visit[i][j+1] == 0: #우측
+            if j < len(A)-1 and A[i][j+1] == 1 and visit[i][j+1] == 0: #우측
                 visit[i][j+1] = 1
                 j+=1
                 dic[s] +=1 
@@ -30,7 +30,7 @@ def solution(A):
             i+=1 
             dic[s] +=1 
 
-    print(sorted(dic.items(),key=lambda x : (x[1])))
+    return sorted(dic.items(),key=lambda x : (x[1]))[0][0]
         
 
 if __name__ == "__main__":
